@@ -18,9 +18,11 @@ import torch.nn as nn
 def _braindecode_eegnet_class():
     import braindecode.models as models
 
-    cls = getattr(models, "EEGNetv4", None) or getattr(models, "EEGNet", None)
+    # Prefer the current name (EEGNet); fall back to the deprecated EEGNetv4
+    # alias on older Braindecode releases.
+    cls = getattr(models, "EEGNet", None) or getattr(models, "EEGNetv4", None)
     if cls is None:  # pragma: no cover - depends on installed version
-        raise ImportError("Neither EEGNetv4 nor EEGNet found in braindecode.models.")
+        raise ImportError("Neither EEGNet nor EEGNetv4 found in braindecode.models.")
     return cls
 
 

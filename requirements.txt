@@ -1,32 +1,33 @@
-# Reproducible reference pins for the Cho2017 Motor Imagery Benchmark.
+# Reconciled, verified-working dependency set for the Cho2017 benchmark.
 #
-# These versions are the canonical, mutually-compatible reference set validated
-# for Python 3.11 (see environment.yml for an equivalent conda specification).
+# These are the exact versions installed and validated for this project (the
+# import, model-shape and unit tests all pass against them). They were resolved
+# on a Python 3.13 host; all also provide wheels for the Python 3.11 reference
+# interpreter (see environment.yml).
 #
-# NOTE ON NEWER PYTHON (e.g. 3.13): some of these exact builds (notably torch
-# and numpy) may not ship wheels for the running interpreter. In that case pip
-# will need compatible newer builds. The *actually installed* versions on any
-# machine are always recorded next to every experiment via
-# `reproducibility.collect_environment()` (saved under results/*/), so the real
-# provenance is never lost even if these pins are relaxed at install time.
+# torch is pinned without the local CUDA tag. The host used a CUDA build
+# (torch 2.6.0+cu124); for GPU support install the matching wheel from the
+# official PyTorch index, e.g.:
+#   pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+# The CPU wheel (plain `torch==2.6.0`) is sufficient for everything here.
 #
-# ATCNet requires braindecode >= 1.1 (the default model implementation); do not
-# downgrade braindecode below a release that exposes `braindecode.models.ATCNet`.
+# ATCNet (default model) requires braindecode >= 1.1; 1.5.2 is used here.
 
-numpy==2.0.2
-scipy==1.13.1
-pandas==2.2.3
-scikit-learn==1.5.2
-matplotlib==3.9.2
-mne==1.8.0
-moabb==1.1.0
-torch==2.4.1
-braindecode==1.5.1
-pyyaml==6.0.2
-tqdm==4.66.5
-joblib==1.4.2
-pyarrow==17.0.0
-requests==2.32.3
+numpy==2.2.6
+scipy==1.16.3
+pandas==2.3.3
+scikit-learn==1.8.0
+matplotlib==3.10.8
+seaborn==0.13.2
+mne==1.12.1
+moabb==1.5.0
+torch==2.6.0
+braindecode==1.5.2
+pyyaml==6.0.3
+tqdm==4.67.1
+joblib==1.5.3
+pyarrow==24.0.0
+requests==2.32.5
 jupyter==1.1.1
-ipykernel==6.29.5
-pytest==8.3.3
+ipykernel==7.1.0
+pytest==8.4.2
