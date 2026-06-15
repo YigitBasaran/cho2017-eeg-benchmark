@@ -1,0 +1,50 @@
+# Experiment 2: EEGNet (Braindecode EEGNetv4 behind a local wrapper).
+
+model:
+  name: eegnet
+  source: braindecode            # uses braindecode.models.EEGNetv4 / EEGNet
+  params:
+    F1: 8
+    D: 2
+    F2: 16
+    kernel_length: 64
+    depthwise_kernel_length: 16
+    drop_prob: 0.25
+
+# Neural seeds. Quick mode keeps [42]; full recommended mode uses [42, 43, 44].
+seeds: [42]
+tuning_seed: 42
+
+training:
+  optimizer: adamw
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  batch_size: 32
+  max_epochs: 200
+  patience: 25
+  monitor: val_balanced_accuracy
+  monitor_mode: max
+  grad_clip: null
+  mixed_precision: false         # enabled only when CUDA is available
+  scheduler:
+    name: reduce_on_plateau
+    factor: 0.5
+    patience: 10
+    min_lr: 1.0e-5
+
+# Validation candidate grid. MUST have the same number of candidates as
+# atcnet.yaml (fair equal tuning budget). Candidates are evaluated with
+# tuning_seed on validation only; the selected one is trained on every seed.
+candidates:
+  - id: c0
+    drop_prob: 0.25
+    lr: 1.0e-3
+  - id: c1
+    drop_prob: 0.50
+    lr: 1.0e-3
+
+# Disabled-by-default augmentation kept only as a future-work option.
+augmentation:
+  enabled: false
+  gaussian_noise_std: 0.0
+  time_shift_samples: 0

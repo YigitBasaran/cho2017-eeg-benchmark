@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cho2017-benchmark"
+version = "0.1.0"
+description = "Reproducible Cho2017 motor-imagery EEG benchmark: CSP + LDA vs EEGNet vs ATCNet"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Cho2017 Motor Imagery Benchmark Authors" }]
+keywords = ["EEG", "BCI", "motor-imagery", "CSP", "EEGNet", "ATCNet", "braindecode"]
+
+# Loose runtime deps for the editable install. Reproducible *pinned* versions
+# live in requirements.txt (pip) and environment.yml (conda).
+dependencies = [
+  "numpy",
+  "scipy",
+  "pandas",
+  "scikit-learn",
+  "matplotlib",
+  "mne",
+  "moabb",
+  "torch",
+  "braindecode",
+  "pyyaml",
+  "tqdm",
+  "joblib",
+  "pyarrow",
+  "requests",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "jupyter", "ipykernel"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+  "requires_torch: test needs PyTorch installed",
+  "requires_braindecode: test needs Braindecode installed",
+  "integration: test needs the real Cho2017 dataset present on disk (slow)",
+]

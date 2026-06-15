@@ -1,0 +1,2 @@
+subject_id,filename,source_url,local_path,size_bytes,download_status,validation_status,downloaded_at,error_message
+s01,s01.mat,https://s3.ap-northeast-1.wasabisys.com/gigadb-datasets/live/pub/10.5524/100001_101000/100295/mat_data/s01.mat,C:\Users\YIGIT-BASARAN\Downloads\bci\data\raw\cho2017\s01.mat,203446256,ok,ok,2026-06-15T16:02:40.760327+00:00,

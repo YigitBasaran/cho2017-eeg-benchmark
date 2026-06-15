@@ -1,0 +1,2 @@
+subject_id,split_method,train_left,train_right,val_left,val_right,test_left,test_right,n_excluded,n_total
+s01,run_holdout,60,60,20,20,20,20,0,200

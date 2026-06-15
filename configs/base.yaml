@@ -1,0 +1,107 @@
+# Base configuration shared by every experiment.
+# Model-specific files (csp_lda.yaml, eegnet.yaml, atcnet.yaml) override parts.
+
+project:
+  name: cho2017-motor-imagery-benchmark
+
+# --- Reproducibility ---
+seed: 42
+seeds: [42]            # neural training seeds; full recommended mode -> [42, 43, 44]
+tuning_seed: 42        # seed used while selecting the neural candidate config
+primary_seed: 42       # seed used for pooled/prediction-level plots
+deterministic: true
+
+# --- Subjects ---
+# All 52 participants. s29 and s34 are excluded from MODEL comparison only;
+# EDA still inspects them (active_subjects(include_excluded=True)).
+subjects: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+           21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+           39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52]
+excluded_subjects: [29, 34]
+
+# Quick mode is ONLY for pipeline debugging. Its results are not scientific.
+quick_mode: false
+quick_subjects: [1, 2, 3, 4, 5]
+
+# --- Classes ---
+classes:
+  names: [left_hand, right_hand]
+  mapping:
+    left_hand: 0
+    right_hand: 1
+
+# --- Channels ---
+channels:
+  n_eeg: 64
+  n_emg: 4
+  n_total: 68
+
+# --- Sampling ---
+sampling:
+  srate_in: 512
+  srate_out: 256
+
+# --- Task window & epoch padding ---
+# crop_*_s are relative to the VERIFIED event semantics recorded in
+# data/metadata/mat_layout_resolution.json (do not assume the event marks
+# imagery onset until verified). pad_s is kept symmetrically around each epoch
+# so zero-phase filter transients never reach the task window; the padding is
+# discarded by the final crop.
+window:
+  crop_start_s: 0.5
+  crop_end_s: 2.5
+  pad_s: 1.0
+
+# Per-event epoch extracted from the raw continuous class array BEFORE filtering
+# (so zero-phase filtering happens inside one epoch and cannot leak across split
+# boundaries). The window is generous (preserves pre-stimulus baseline for EDA
+# in data/interim) and must comfortably contain [crop_start - pad, crop_end + pad].
+# Verified for Cho2017: onsets are ~7 s apart with ~2 s pre-stimulus available,
+# so [-1.5, 4.0] s fits every trial including the first/last.
+epoch:
+  tmin_s: -1.5
+  tmax_s: 4.0
+
+# Run recovery (no explicit run field exists in the .mat). Contiguous 20-trial
+# blocks are treated as runs ONLY when justified by the documented sequential
+# protocol AND the per-class trial count is 100 or 120 (=> 5 or 6 runs). This
+# assumes chronological trial storage; otherwise run_id_source="unrecoverable".
+runs:
+  trials_per_run: 20
+  valid_trials_per_class: [100, 120]
+  valid_n_runs: [5, 6]
+
+# --- Filtering ---
+filter:
+  l_freq: 8.0
+  h_freq: 30.0
+  method: iir_butter_filtfilt   # zero-phase Butterworth (scipy sosfiltfilt)
+  iir_order: 4
+  pad_type: odd                 # valid scipy filtfilt padtype; edge transients fall
+                                # outside the cropped task window regardless
+  eps: 1.0e-7
+
+# --- Spatial reference ---
+reference: car                  # common average reference over the 64 EEG channels
+
+# --- Artifact / bad-trial policy ---
+artifact:
+  use_provided_bad_trials: true
+  # Subjects removed from modelling (>90% EMG-correlated MI trials in the paper).
+  model_excluded_subjects: [29, 34]
+
+# --- Split policy ---
+split:
+  method: run_holdout           # preferred chronological later-run holdout
+  fallback: stratified          # used when run structure is unrecoverable
+  fallback_ratios: [0.70, 0.15, 0.15]
+  random_seed: 42
+  min_trials_per_split: 2
+
+# --- Class balance ---
+class_balance:
+  use_weights_default: false
+  imbalance_threshold: 0.10     # enable optional train-only weights above this
+
+# --- Device ---
+device: auto                    # auto | cpu | cuda

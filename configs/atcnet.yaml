@@ -1,0 +1,54 @@
+# Experiment 3: ATCNet.
+# Braindecode ATCNet is the DEFAULT implementation. A local PyTorch fallback
+# may be used ONLY when explicitly enabled, and its results are labelled
+# separately (model_source = "local_fallback") so they are never mixed with
+# the Braindecode ATCNet results.
+
+model:
+  name: atcnet
+  source: braindecode
+  allow_local_fallback: false
+  params:
+    n_windows: 5
+    conv_block_n_filters: 16
+    conv_block_pool_size_2: 7     # primary lever if the condensed time axis is too small
+    conv_block_dropout: 0.3
+    head_dim: 8
+    num_heads: 2
+    att_drop_prob: 0.5
+    tcn_depth: 2
+    tcn_kernel_size: 4
+    tcn_drop_prob: 0.3
+  input:
+    # 2.0 s at 256 Hz = 512 samples, matching the 0.5-2.5 s crop.
+    input_window_seconds: 2.0
+    sfreq: 256
+
+seeds: [42]
+tuning_seed: 42
+
+training:
+  optimizer: adamw
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  batch_size: 32
+  max_epochs: 250
+  patience: 30
+  monitor: val_balanced_accuracy
+  monitor_mode: max
+  grad_clip: null
+  mixed_precision: false
+  scheduler:
+    name: reduce_on_plateau
+    factor: 0.5
+    patience: 10
+    min_lr: 1.0e-5
+
+# SAME number of candidates as eegnet.yaml (equal tuning budget).
+candidates:
+  - id: c0
+    lr: 1.0e-3
+    tcn_kernel_size: 4
+  - id: c1
+    lr: 5.0e-4
+    tcn_kernel_size: 4

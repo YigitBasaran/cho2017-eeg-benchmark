@@ -1,0 +1,27 @@
+# Experiment 1: traditional CSP + LDA baseline.
+
+model:
+  name: csp_lda
+
+# Small, scientifically interpretable validation search. Hyperparameters are
+# selected by validation balanced accuracy.
+csp:
+  n_components: [4, 6, 8]        # ~2 spatial filters per class and beyond
+  reg: [null, ledoit_wolf]       # None or Ledoit-Wolf shrinkage
+  log: true
+  transform_into: average_power
+
+lda:
+  # "svd" = standard SVD LDA; "lsqr_shrinkage" = lsqr solver with shrinkage='auto'.
+  solver: [svd, lsqr_shrinkage]
+
+selection:
+  metric: balanced_accuracy      # validation metric for model selection
+
+# Primary protocol (matches the neural models for a fair comparison):
+# fit on train, select on validation, evaluate ONCE on test. No train+val refit
+# in the primary comparison. A train+val refit may only be run as a separate,
+# explicitly labelled protocol applied identically to all models.
+protocol:
+  primary: train_fit_val_select_test_once
+  refit_train_val: false

@@ -1,0 +1,43 @@
+{
+  "validated": true,
+  "inspected_subjects": [
+    "s01"
+  ],
+  "srate": 512.0,
+  "n_channels": 68,
+  "orientation": "channels_by_time",
+  "event_representation": "binary_marker_vector",
+  "event_semantics": "event marks the cue; stored interval includes pre-stimulus baseline (starts at -2.0 s)",
+  "time_zero_definition": "imagery_event onset sample (t = 0)",
+  "imagery_interval_relative_to_event_seconds": [
+    -2.0,
+    5.0
+  ],
+  "primary_crop_relative_to_event_seconds": [
+    0.5,
+    2.5
+  ],
+  "index_base": "one_based",
+  "bad_trial_scope": "class_specific",
+  "rejection_reason_mapping": {
+    "bad_trial_idx_voltage": "amplitude",
+    "bad_trial_idx_mi": "emg_correlation"
+  },
+  "run_metadata_available": false,
+  "pre_stimulus_available": true,
+  "pre_stimulus_samples": 1024,
+  "justification": {
+    "srate": "Observed srate field across inspected files: [512.0].",
+    "orientation": "imagery_left shapes had ndim=[2] with channel axis [0] (channel count [68]).",
+    "event_representation": "imagery_event length matched the signal time axis in all inspected files -> binary onset-marker vector; onsets = nonzero positions.",
+    "frame": "frame [-2000.0, 5000.0] interpreted as milliseconds (per-trial window ~3584 samples vs onset spacing 3584); imagery interval ~[-2.000, 5.000] s relative to event.",
+    "event_semantics": "Derived from the frame interval relative to the event; not assumed to be imagery onset without this evidence.",
+    "bad_trial_scope": "Derived from bad_trial_indices structure (subfields=['bad_trial_idx_voltage', 'bad_trial_idx_mi']).",
+    "index_base": "Compared max bad-trial index against n_imagery_trials: max==n -> one-based, max==n-1 with a zero present -> zero-based.",
+    "rejection_reason_mapping": "bad_trial_indices subfields ['bad_trial_idx_voltage', 'bad_trial_idx_mi'] mapped to reasons via name heuristics (volt/amp->amplitude, emg/mi/corr->emg_correlation).",
+    "run_metadata": "No explicit run field found in eeg struct; runs must be recovered or marked unrecoverable."
+  },
+  "warnings": [
+    "Could not determine bad-trial index base; defaulting to one_based."
+  ]
+}
