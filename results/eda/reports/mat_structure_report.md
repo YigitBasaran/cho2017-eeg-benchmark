@@ -32,13 +32,64 @@ Bu rapor, ham `.mat` dosyalarinin gercek yapisini belgeler. Loader/epoching vars
 - **rejection_reason_mapping**: bad_trial_indices subfields ['bad_trial_idx_voltage', 'bad_trial_idx_mi'] mapped to reasons via name heuristics (volt/amp->amplitude, emg/mi/corr->emg_correlation).
 - **run_metadata**: No explicit run field found in eeg struct; runs must be recovered or marked unrecoverable.
 
-### Warnings
-
-- :warning: Could not determine bad-trial index base; defaulting to one_based.
-
 ## Per-subject inspection
 
 ### s01
+- top-level keys: `['eeg']`
+- eeg fields: `['noise', 'rest', 'srate', 'movement_left', 'movement_right', 'movement_event', 'n_movement_trials', 'imagery_left', 'imagery_right', 'n_imagery_trials', 'frame', 'imagery_event', 'comment', 'subject', 'bad_trial_indices', 'psenloc', 'senloc']`
+- srate: `512.0`
+- n_imagery_trials: `100`
+- imagery_left shape: `[68, 358400]`, imagery_right shape: `[68, 358400]`
+- channel axis: `0`, n_channels: `68`, time samples: `358400`, duration_s: `700.0`
+- imagery_event: nonzero=100, length=358400, len_matches_time=True
+- frame: `[-2000.0, 5000.0]`
+- bad_trial_indices: `{"kind": "struct", "fields": {"bad_trial_idx_voltage": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [0], "dtype": "uint8"}, {"kind": "array", "shape": [0], "dtype": "uint8"}]}, "bad_trial_idx_mi": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [0], "dtype": "uint8"}, {"kind": "array", "shape": [0], "dtype": "uint8"}]}}}`
+
+### s20
+- top-level keys: `['eeg']`
+- eeg fields: `['noise', 'rest', 'srate', 'movement_left', 'movement_right', 'movement_event', 'n_movement_trials', 'imagery_left', 'imagery_right', 'n_imagery_trials', 'frame', 'imagery_event', 'comment', 'subject', 'bad_trial_indices', 'psenloc', 'senloc']`
+- srate: `512.0`
+- n_imagery_trials: `100`
+- imagery_left shape: `[68, 358400]`, imagery_right shape: `[68, 358400]`
+- channel axis: `0`, n_channels: `68`, time samples: `358400`, duration_s: `700.0`
+- imagery_event: nonzero=100, length=358400, len_matches_time=True
+- frame: `[-2000.0, 5000.0]`
+- bad_trial_indices: `{"kind": "struct", "fields": {"bad_trial_idx_voltage": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [0], "dtype": "uint8"}, {"kind": "array", "shape": [0], "dtype": "uint8"}]}, "bad_trial_idx_mi": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [70], "dtype": "uint8", "min": 1.0, "max": 100.0, "n_nonzero": 70}, {"kind": "array", "shape": [47], "dtype": "uint8", "min": 24.0, "max": 100.0, "n_nonzero": 47}]}}}`
+
+### s29
+- top-level keys: `['eeg']`
+- eeg fields: `['noise', 'rest', 'srate', 'movement_left', 'movement_right', 'movement_event', 'n_movement_trials', 'imagery_left', 'imagery_right', 'n_imagery_trials', 'frame', 'imagery_event', 'comment', 'subject', 'bad_trial_indices', 'psenloc', 'senloc']`
+- srate: `512.0`
+- n_imagery_trials: `100`
+- imagery_left shape: `[68, 358400]`, imagery_right shape: `[68, 358400]`
+- channel axis: `0`, n_channels: `68`, time samples: `358400`, duration_s: `700.0`
+- imagery_event: nonzero=100, length=358400, len_matches_time=True
+- frame: `[-2000.0, 5000.0]`
+- bad_trial_indices: `{"kind": "struct", "fields": {"bad_trial_idx_voltage": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [0], "dtype": "uint8"}, {"kind": "array", "shape": [0], "dtype": "uint8"}]}, "bad_trial_idx_mi": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [80], "dtype": "uint8", "min": 1.0, "max": 99.0, "n_nonzero": 80}, {"kind": "array", "shape": [99], "dtype": "uint8", "min": 1.0, "max": 100.0, "n_nonzero": 99}]}}}`
+
+### s33
+- top-level keys: `['eeg']`
+- eeg fields: `['noise', 'rest', 'srate', 'movement_left', 'movement_right', 'movement_event', 'n_movement_trials', 'imagery_left', 'imagery_right', 'n_imagery_trials', 'frame', 'imagery_event', 'comment', 'subject', 'bad_trial_indices', 'psenloc', 'senloc']`
+- srate: `512.0`
+- n_imagery_trials: `100`
+- imagery_left shape: `[68, 358400]`, imagery_right shape: `[68, 358400]`
+- channel axis: `0`, n_channels: `68`, time samples: `358400`, duration_s: `700.0`
+- imagery_event: nonzero=100, length=358400, len_matches_time=True
+- frame: `[-2000.0, 5000.0]`
+- bad_trial_indices: `{"kind": "struct", "fields": {"bad_trial_idx_voltage": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [4], "dtype": "uint8", "min": 1.0, "max": 81.0, "n_nonzero": 4, "values": [1, 72, 77, 81]}, {"kind": "array", "shape": [3], "dtype": "uint8", "min": 66.0, "max": 85.0, "n_nonzero": 3, "values": [66, 81, 85]}]}, "bad_trial_idx_mi": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [0], "dtype": "uint8"}, {"kind": "array", "shape": [], "dtype": "int64", "min": 41.0, "max": 41.0, "n_nonzero": 1, "values": [41]}]}}}`
+
+### s34
+- top-level keys: `['eeg']`
+- eeg fields: `['noise', 'rest', 'srate', 'movement_left', 'movement_right', 'movement_event', 'n_movement_trials', 'imagery_left', 'imagery_right', 'n_imagery_trials', 'frame', 'imagery_event', 'comment', 'subject', 'bad_trial_indices', 'psenloc', 'senloc']`
+- srate: `512.0`
+- n_imagery_trials: `100`
+- imagery_left shape: `[68, 358400]`, imagery_right shape: `[68, 358400]`
+- channel axis: `0`, n_channels: `68`, time samples: `358400`, duration_s: `700.0`
+- imagery_event: nonzero=100, length=358400, len_matches_time=True
+- frame: `[-2000.0, 5000.0]`
+- bad_trial_indices: `{"kind": "struct", "fields": {"bad_trial_idx_voltage": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [0], "dtype": "uint8"}, {"kind": "array", "shape": [0], "dtype": "uint8"}]}, "bad_trial_idx_mi": {"kind": "cell", "shape": [2], "cells": [{"kind": "array", "shape": [87], "dtype": "uint8", "min": 3.0, "max": 100.0, "n_nonzero": 87}, {"kind": "array", "shape": [97], "dtype": "uint8", "min": 1.0, "max": 100.0, "n_nonzero": 97}]}}}`
+
+### s52
 - top-level keys: `['eeg']`
 - eeg fields: `['noise', 'rest', 'srate', 'movement_left', 'movement_right', 'movement_event', 'n_movement_trials', 'imagery_left', 'imagery_right', 'n_imagery_trials', 'frame', 'imagery_event', 'comment', 'subject', 'bad_trial_indices', 'psenloc', 'senloc']`
 - srate: `512.0`

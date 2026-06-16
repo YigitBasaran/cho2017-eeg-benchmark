@@ -1,7 +1,12 @@
 {
   "validated": true,
   "inspected_subjects": [
-    "s01"
+    "s01",
+    "s20",
+    "s29",
+    "s33",
+    "s34",
+    "s52"
   ],
   "srate": 512.0,
   "n_channels": 68,
@@ -37,7 +42,5 @@
     "rejection_reason_mapping": "bad_trial_indices subfields ['bad_trial_idx_voltage', 'bad_trial_idx_mi'] mapped to reasons via name heuristics (volt/amp->amplitude, emg/mi/corr->emg_correlation).",
     "run_metadata": "No explicit run field found in eeg struct; runs must be recovered or marked unrecoverable."
   },
-  "warnings": [
-    "Could not determine bad-trial index base; defaulting to one_based."
-  ]
+  "warnings": []
 }

@@ -1,0 +1,328 @@
+{
+  "n_subjects_requested": 52,
+  "n_subjects_processed": 52,
+  "total_trials": 10520,
+  "total_included": 9745,
+  "status_distribution": {
+    "ok": 52
+  },
+  "run_id_source_distribution": {
+    "inferred_from_protocol": 52
+  },
+  "srate_in": 512,
+  "srate_out": 256,
+  "per_subject": [
+    {
+      "subject_id": "s01",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s02",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s03",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s04",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s05",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s06",
+      "n_trials": 200,
+      "n_included": 178,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s07",
+      "n_trials": 240,
+      "n_included": 239,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s08",
+      "n_trials": 200,
+      "n_included": 198,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s09",
+      "n_trials": 240,
+      "n_included": 240,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s10",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s11",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s12",
+      "n_trials": 200,
+      "n_included": 174,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s13",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s14",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s15",
+      "n_trials": 200,
+      "n_included": 190,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s16",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s17",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s18",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s19",
+      "n_trials": 200,
+      "n_included": 143,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s20",
+      "n_trials": 200,
+      "n_included": 83,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s21",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s22",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s23",
+      "n_trials": 200,
+      "n_included": 197,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s24",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s25",
+      "n_trials": 200,
+      "n_included": 195,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s26",
+      "n_trials": 200,
+      "n_included": 198,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s27",
+      "n_trials": 200,
+      "n_included": 184,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s28",
+      "n_trials": 200,
+      "n_included": 195,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s29",
+      "n_trials": 200,
+      "n_included": 21,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s30",
+      "n_trials": 200,
+      "n_included": 122,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s31",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s32",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s33",
+      "n_trials": 200,
+      "n_included": 192,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s34",
+      "n_trials": 200,
+      "n_included": 16,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s35",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s36",
+      "n_trials": 200,
+      "n_included": 193,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s37",
+      "n_trials": 200,
+      "n_included": 196,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s38",
+      "n_trials": 200,
+      "n_included": 191,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s39",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s40",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s41",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s42",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s43",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s44",
+      "n_trials": 200,
+      "n_included": 198,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s45",
+      "n_trials": 200,
+      "n_included": 196,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s46",
+      "n_trials": 240,
+      "n_included": 239,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s47",
+      "n_trials": 200,
+      "n_included": 192,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s48",
+      "n_trials": 200,
+      "n_included": 199,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s49",
+      "n_trials": 200,
+      "n_included": 192,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s50",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s51",
+      "n_trials": 200,
+      "n_included": 194,
+      "run_id_source": "inferred_from_protocol"
+    },
+    {
+      "subject_id": "s52",
+      "n_trials": 200,
+      "n_included": 200,
+      "run_id_source": "inferred_from_protocol"
+    }
+  ]
+}

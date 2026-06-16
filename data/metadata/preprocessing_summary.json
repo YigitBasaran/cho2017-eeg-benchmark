@@ -1,0 +1,18 @@
+{
+  "config": {
+    "crop_end_s": 2.5,
+    "crop_start_s": 0.5,
+    "eps": 1e-07,
+    "filter_method": "iir_butter_filtfilt",
+    "h_freq": 30.0,
+    "iir_order": 4,
+    "l_freq": 8.0,
+    "pad_type": "odd",
+    "reference": "car",
+    "srate_in": 512,
+    "srate_out": 256
+  },
+  "preprocessing_hash": "166bef83a7ea3e7f",
+  "expected_n_times": 512,
+  "description": "per-epoch: common average reference -> zero-phase 8-30 Hz Butterworth (sosfiltfilt) -> resample 512->256 Hz -> crop 0.5-2.5 s -> 64 x 512"
+}
