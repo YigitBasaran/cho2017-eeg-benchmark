@@ -1,0 +1,147 @@
+project:
+  name: cho2017-motor-imagery-benchmark
+seed: 42
+seeds:
+- 42
+tuning_seed: 42
+primary_seed: 42
+deterministic: true
+subjects:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+- 49
+- 50
+- 51
+- 52
+excluded_subjects:
+- 29
+- 34
+quick_mode: false
+quick_subjects:
+- 1
+- 2
+- 3
+- 4
+- 5
+classes:
+  names:
+  - left_hand
+  - right_hand
+  mapping:
+    left_hand: 0
+    right_hand: 1
+channels:
+  n_eeg: 64
+  n_emg: 4
+  n_total: 68
+sampling:
+  srate_in: 512
+  srate_out: 256
+window:
+  crop_start_s: 0.5
+  crop_end_s: 2.5
+  pad_s: 1.0
+epoch:
+  tmin_s: -1.5
+  tmax_s: 4.0
+runs:
+  trials_per_run: 20
+  valid_trials_per_class:
+  - 100
+  - 120
+  valid_n_runs:
+  - 5
+  - 6
+filter:
+  l_freq: 8.0
+  h_freq: 30.0
+  method: iir_butter_filtfilt
+  iir_order: 4
+  pad_type: odd
+  eps: 1.0e-07
+reference: car
+artifact:
+  use_provided_bad_trials: true
+  model_excluded_subjects:
+  - 29
+  - 34
+split:
+  method: run_holdout
+  fallback: stratified
+  fallback_ratios:
+  - 0.7
+  - 0.15
+  - 0.15
+  random_seed: 42
+  min_trials_per_split: 2
+class_balance:
+  use_weights_default: false
+  imbalance_threshold: 0.1
+device: auto
+model:
+  name: csp_lda
+csp:
+  n_components:
+  - 4
+  - 6
+  - 8
+  reg:
+  - null
+  - ledoit_wolf
+  log: true
+  transform_into: average_power
+lda:
+  solver:
+  - svd
+  - lsqr_shrinkage
+selection:
+  metric: balanced_accuracy
+protocol:
+  primary: train_fit_val_select_test_once
+  refit_train_val: false
